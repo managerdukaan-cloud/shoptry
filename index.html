@@ -5428,7 +5428,7 @@
                     
                     orderItems.forEach((item, index) => {
                         const itemTotal = (item.price || 0) * (item.quantity || 1);
-                        const itemStatus = item.status || 'pending';
+                        const itemStatus = item.status || order.status || 'pending';
                         let statusClass = '';
                         let statusText = '';
                         
@@ -5436,6 +5436,10 @@
                             case 'pending':
                                 statusClass = 'order-item-status pending';
                                 statusText = 'Pending';
+                                break;
+                            case 'confirmed':
+                                statusClass = 'order-item-status confirmed';
+                                statusText = 'Confirmed';
                                 break;
                             case 'preparing':
                                 statusClass = 'order-item-status preparing';
@@ -5445,9 +5449,21 @@
                                 statusClass = 'order-item-status packed';
                                 statusText = 'Packed';
                                 break;
-                            case 'ready':
+                            case 'ready_for_pickup':
                                 statusClass = 'order-item-status ready';
-                                statusText = 'Ready';
+                                statusText = 'Ready for Pickup';
+                                break;
+                            case 'picked_up':
+                                statusClass = 'order-item-status delivered';
+                                statusText = 'Picked Up';
+                                break;
+                            case 'dispatched':
+                                statusClass = 'order-item-status dispatched';
+                                statusText = 'Dispatched';
+                                break;
+                            case 'out_for_delivery':
+                                statusClass = 'order-item-status out_for_delivery';
+                                statusText = 'Out for Delivery';
                                 break;
                             case 'delivered':
                                 statusClass = 'order-item-status delivered';
@@ -5457,10 +5473,15 @@
                                 statusClass = 'order-item-status cancelled';
                                 statusText = 'Cancelled';
                                 break;
+                            case 'rejected':
+                                statusClass = 'order-item-status rejected';
+                                statusText = 'Rejected';
+                                break;
                             default:
                                 statusClass = 'order-item-status pending';
                                 statusText = itemStatus;
                         }
+
                         
                         itemsHtml += `
                             <tr>
