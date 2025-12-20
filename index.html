@@ -4921,37 +4921,23 @@
                                         (order.customer && order.customer.phone) || 
                                         'N/A';
                     
-                    // IMPROVED ADDRESS EXTRACTION
-                    let customerAddress = 'N/A';
+                                        // IMPROVED ADDRESS EXTRACTION
+                                        let customerAddress = 'N/A';
                     
-                    // Try different address fields with better extraction
-                    if (order.shippingAddress) {
-                        if (typeof order.shippingAddress === 'string') {
-                            customerAddress = order.shippingAddress;
-                        } else if (typeof order.shippingAddress === 'object') {
-                            // Handle structured address object
-                            const addr = order.shippingAddress;
-                            const parts = [];
-                            if (addr.street) parts.push(addr.street);
-                            if (addr.area) parts.push(addr.area);
-                            if (addr.city) parts.push(addr.city);
-                            if (addr.state) parts.push(addr.state);
-                            if (addr.pincode) parts.push(addr.pincode);
-                            if (parts.length > 0) customerAddress = parts.join(', ');
+                    if (order.address && typeof order.address === 'object') {
+                        const addr = order.address;
+                        const parts = [];
+                    
+                        if (addr.details) parts.push(addr.details);
+                        if (addr.landmark) parts.push(addr.landmark);
+                        if (addr.city) parts.push(addr.city);
+                        if (addr.pincode) parts.push(addr.pincode);
+                    
+                        if (parts.length > 0) {
+                            customerAddress = parts.join(', ');
                         }
-                    } else if (order.address) {
-                        if (typeof order.address === 'string') {
-                            customerAddress = order.address;
-                        } else if (typeof order.address === 'object') {
-                            const addr = order.address;
-                            const parts = [];
-                            if (addr.street) parts.push(addr.street);
-                            if (addr.area) parts.push(addr.area);
-                            if (addr.city) parts.push(addr.city);
-                            if (addr.state) parts.push(addr.state);
-                            if (addr.pincode) parts.push(addr.pincode);
-                            if (parts.length > 0) customerAddress = parts.join(', ');
-                        }
+                    }
+
                     } else if (order.customerAddress && typeof order.customerAddress === 'string') {
                         customerAddress = order.customerAddress;
                     } else if (order.user && order.user.address) {
@@ -5366,35 +5352,21 @@
                 
                 // IMPROVED ADDRESS EXTRACTION FOR ORDER DETAILS
                 let customerAddress = 'N/A';
-                
-                if (order.shippingAddress) {
-                    if (typeof order.shippingAddress === 'string') {
-                        customerAddress = order.shippingAddress;
-                    } else if (typeof order.shippingAddress === 'object') {
-                        const addr = order.shippingAddress;
-                        const parts = [];
-                        if (addr.street) parts.push(addr.street);
-                        if (addr.area) parts.push(addr.area);
-                        if (addr.city) parts.push(addr.city);
-                        if (addr.state) parts.push(addr.state);
-                        if (addr.pincode) parts.push(addr.pincode);
-                        if (addr.landmark) parts.push(`Landmark: ${addr.landmark}`);
-                        if (parts.length > 0) customerAddress = parts.join(', ');
-                    }
-                } else if (order.address) {
-                    if (typeof order.address === 'string') {
-                        customerAddress = order.address;
-                    } else if (typeof order.address === 'object') {
-                        const addr = order.address;
-                        const parts = [];
-                        if (addr.street) parts.push(addr.street);
-                        if (addr.area) parts.push(addr.area);
-                        if (addr.city) parts.push(addr.city);
-                        if (addr.state) parts.push(addr.state);
-                        if (addr.pincode) parts.push(addr.pincode);
-                        if (addr.landmark) parts.push(`Landmark: ${addr.landmark}`);
-                        if (parts.length > 0) customerAddress = parts.join(', ');
-                    }
+
+                        if (order.address && typeof order.address === 'object') {
+                            const addr = order.address;
+                            const parts = [];
+                        
+                            if (addr.details) parts.push(addr.details);
+                            if (addr.landmark) parts.push(addr.landmark);
+                            if (addr.city) parts.push(addr.city);
+                            if (addr.pincode) parts.push(addr.pincode);
+                        
+                            if (parts.length > 0) {
+                                customerAddress = parts.join(', ');
+                            }
+                        }
+
                 } else if (order.customerAddress && typeof order.customerAddress === 'string') {
                     customerAddress = order.customerAddress;
                 } else if (order.user && order.user.address) {
