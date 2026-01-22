@@ -48,123 +48,136 @@
         }
         
         /* Header Styles */
-        header {
-            background: var(--primary);
-            color: var(--white);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--white);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        .btn {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), #0056b3);
-            color: var(--white);
-            border: none;
-        }
-        
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #0056b3, var(--primary));
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(15, 44, 89, 0.3);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-        }
-        
-        .btn-outline:hover {
-            background: rgba(234, 219, 200, 0.1);
-            color: var(--accent);
-        }
-        
-        .btn-success {
-            background: var(--success);
-            color: white;
-        }
-        
-        .btn-success:hover {
-            background: #218838;
-            color: white;
-        }
-        
-        .btn-warning {
-            background: var(--warning);
-            color: #212529;
-        }
-        
-        .btn-warning:hover {
-            background: #e0a800;
-            color: #212529;
-        }
-        
-        .btn-danger {
-            background: var(--danger);
-            color: white;
-        }
-        
-        .btn-danger:hover {
-            background: #c82333;
-            color: white;
-        }
-        
-        .btn-info {
-            background: var(--info);
-            color: white;
-        }
-        
-        .btn-info:hover {
-            background: #138496;
-            color: white;
-        }
-        
-        /* Main Content */
-        main {
-            margin-top: 80px;
-            min-height: calc(100vh - 160px);
-            padding: 2rem 0;
-        }
+header {
+    background: var(--primary);
+    color: var(--white);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* ✅ DESKTOP-ONLY HEADER MENU (Orders, Refunds, Profile) */
+.desktop-only {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* ✅ Mobile pe header se hide (footer handle karega) */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), #0056b3);
+    color: var(--white);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, var(--primary));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 44, 89, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+}
+
+.btn-outline:hover {
+    background: rgba(234, 219, 200, 0.1);
+    color: var(--accent);
+}
+
+.btn-success {
+    background: var(--success);
+    color: white;
+}
+
+.btn-success:hover {
+    background: #218838;
+    color: white;
+}
+
+.btn-warning {
+    background: var(--warning);
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background: #e0a800;
+    color: #212529;
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+    color: white;
+}
+
+.btn-info {
+    background: var(--info);
+    color: white;
+}
+
+.btn-info:hover {
+    background: #138496;
+    color: white;
+}
+
+/* Main Content */
+main {
+    margin-top: 80px;
+    min-height: calc(100vh - 160px);
+    padding: 2rem 0;
+}
         
         /* Auth Styles */
         .auth-container {
@@ -1847,23 +1860,26 @@
         <i class="fas fa-wifi-slash"></i> No Internet Connection
     </div>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">🏪 Raashanmart Shop</div>
-                <div class="nav-links">
-                    <a href="#" data-page="dashboard">Dashboard</a>
-                    <a href="#" data-page="products">Products</a>
-                    <a href="#" data-page="orders">Orders <span class="orders-badge" style="display: none;">0</span></a>
-                    <a href="#" data-page="refunds">Refunds</a>
-                    <a href="#" data-page="settings">Settings</a>
-                    <a href="#" data-page="profile">Profile</a>
-                    <button class="btn btn-outline" onclick="logout()">Logout</button>
-                </div>
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">🏪 Raashanmart Shop</div>
+            <div class="nav-links">
+                <a href="#" data-page="dashboard">Dashboard</a>
+                <a href="#" data-page="products">Products</a>
+
+                <!-- Desktop-only menu items -->
+                <a href="#" data-page="orders" class="desktop-only">Orders</a>
+                <a href="#" data-page="refunds" class="desktop-only">Refunds</a>
+                <a href="#" data-page="profile" class="desktop-only">Profile</a>
+
+                <a href="#" data-page="settings">Settings</a>
+                <button class="btn btn-outline" onclick="logout()">Logout</button>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Main Content -->
     <main>
@@ -4507,108 +4523,108 @@
         }
 
         async function saveProduct() {
-            if (!currentShop || !currentShop.name) {
-                showToast('Shop information not loaded. Please refresh page.', 'error');
-                return;
-            }
-            
-            const productId = document.getElementById('editProductId').value;
-            const productName = document.getElementById('productName').value.trim();
-            const productPrice = parseFloat(document.getElementById('productPrice').value);
-            const productMrp = parseFloat(document.getElementById('productMrp').value) || productPrice;
-            const productStock = parseInt(document.getElementById('productStock').value);
-            
-            if (!productName) {
-                showToast('Product name is required', 'error');
-                return;
-            }
-            
-            if (isNaN(productPrice) || productPrice < 0) {
-                showToast('Please enter a valid price', 'error');
-                return;
-            }
-            
-            if (isNaN(productStock) || productStock < 0) {
-                showToast('Please enter a valid stock quantity', 'error');
-                return;
-            }
-            
-            let category = document.getElementById('productCategory').value;
-            if (category === 'other') {
-                const customCategory = document.getElementById('customCategoryName').value.trim();
-                if (!customCategory) {
-                    showToast('Please enter custom category name', 'error');
-                    return;
-                }
-                
-                const success = await addNewCategory(customCategory);
-                if (success) {
-                    category = customCategory.toLowerCase().replace(/\s+/g, '_');
-                } else {
-                    category = 'other';
-                }
-            }
-            
-            let imageUrl = '';
-            if (currentImageTab === 'url') {
-                imageUrl = document.getElementById('productImage').value.trim();
-                if (!imageUrl) {
-                    imageUrl = document.getElementById('cloudinaryImageUrl').value;
-                }
-            } else {
-                imageUrl = document.getElementById('cloudinaryImageUrl').value;
-            }
-            
-            if (!imageUrl) {
-                imageUrl = 'https://cdn-icons-png.flaticon.com/512/3148/3148829.png';
-            }
-            
-            const refundAvailable = document.getElementById('productRefundAvailable').checked;
-            const refundPeriod = parseInt(document.getElementById('productRefundPeriod').value) || 7;
-            const refundType = document.getElementById('productRefundType').value;
-            const refundConditions = document.getElementById('productRefundConditions').value.trim();
-            
-            const productData = {
-                name: productName,
-                category: category,
-                price: productPrice,
-                mrp: productMrp,
-                stock: productStock,
-                description: document.getElementById('productDescription').value.trim(),
-                image: imageUrl,
-                shopId: currentShop.id,
-                shopName: currentShop.name,
-                refundAvailable: refundAvailable,
-                refundPeriod: refundAvailable ? refundPeriod : null,
-                refundType: refundAvailable ? refundType : null,
-                refundConditions: refundAvailable ? refundConditions : '',
-                isAvailable: true,
-                status: 'active',
-                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-            };
-            
-            try {
-                showLoading(true);
-                if (productId) {
-                    await db.collection('products').doc(productId).update(productData);
-                    showToast('Product updated successfully!', 'success');
-                } else {
-                    productData.createdAt = firebase.firestore.FieldValue.serverTimestamp();
-                    await db.collection('products').add(productData);
-                    showToast('Product added successfully!', 'success');
-                }
-                
-                closeProductModal();
-                await loadProducts();
-                await loadDashboardData();
-                
-            } catch (error) {
-                console.error('Error saving product:', error);
-                showToast('Error saving product: ' + error.message, 'error');
-            } finally {
-                showLoading(false);
-            }
+    if (!currentShop || !currentShop.name) {
+        showToast('Shop information not loaded. Please refresh page.', 'error');
+        return;
+    }
+
+    const productId = document.getElementById('editProductId').value;
+    const productName = document.getElementById('productName').value.trim();
+    const productPrice = parseFloat(document.getElementById('productPrice').value);
+    const productMrp = parseFloat(document.getElementById('productMrp').value) || productPrice;
+    const productStock = parseInt(document.getElementById('productStock').value);
+
+    if (!productName) {
+        showToast('Product name is required', 'error');
+        return;
+    }
+
+    if (isNaN(productPrice) || productPrice < 0) {
+        showToast('Please enter a valid price', 'error');
+        return;
+    }
+
+    if (isNaN(productStock) || productStock < 0) {
+        showToast('Please enter a valid stock quantity', 'error');
+        return;
+    }
+
+    let category = document.getElementById('productCategory').value;
+    if (category === 'other') {
+        const customCategory = document.getElementById('customCategoryName').value.trim();
+        if (!customCategory) {
+            showToast('Please enter custom category name', 'error');
+            return;
         }
+
+        const success = await addNewCategory(customCategory);
+        category = success
+            ? customCategory.toLowerCase().replace(/\s+/g, '_')
+            : 'other';
+    }
+
+    // 🔥 IMAGE LOGIC — FIXED
+    let imageUrl = null;
+    const urlInput = document.getElementById('productImage').value.trim();
+    const cloudinaryUrl = document.getElementById('cloudinaryImageUrl').value.trim();
+
+    if (currentImageTab === 'url' && urlInput) {
+        imageUrl = urlInput;
+    }
+
+    if (currentImageTab === 'cloudinary' && cloudinaryUrl) {
+        imageUrl = cloudinaryUrl;
+    }
+
+    const refundAvailable = document.getElementById('productRefundAvailable').checked;
+
+    const productData = {
+        name: productName,
+        category: category,
+        price: productPrice,
+        mrp: productMrp,
+        stock: productStock,
+        description: document.getElementById('productDescription').value.trim(),
+        shopId: currentShop.id,
+        shopName: currentShop.name,
+        refundAvailable: refundAvailable,
+        refundPeriod: refundAvailable ? parseInt(document.getElementById('productRefundPeriod').value) || 7 : null,
+        refundType: refundAvailable ? document.getElementById('productRefundType').value : null,
+        refundConditions: refundAvailable ? document.getElementById('productRefundConditions').value.trim() : '',
+        isAvailable: true,
+        status: 'active',
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    };
+
+    // ✅ ONLY update image if user actually changed it
+    if (imageUrl) {
+        productData.image = imageUrl;
+    }
+
+    try {
+        showLoading(true);
+
+        if (productId) {
+            await db.collection('products').doc(productId).update(productData);
+            showToast('Product updated successfully!', 'success');
+        } else {
+            productData.image = imageUrl || 'https://cdn-icons-png.flaticon.com/512/3148/3148829.png';
+            productData.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+            await db.collection('products').add(productData);
+            showToast('Product added successfully!', 'success');
+        }
+
+        closeProductModal();
+        await loadProducts();
+        await loadDashboardData();
+
+    } catch (error) {
+        console.error('Error saving product:', error);
+        showToast('Error saving product: ' + error.message, 'error');
+    } finally {
+        showLoading(false);
+    }
+}
 
         async function deleteProduct(productId) {
             if (!confirm('Are you sure you want to delete this product?')) return;
@@ -4651,12 +4667,14 @@
                             
                             if (!orders.find(o => o.firestoreId === doc.id)) {
                                 orders.push({ 
-                                    id: orderIdFromCustomer,
-                                    firestoreId: doc.id,
-                                    customerId: customerId,
-                                    ...data,
-                                    shortId: generateShortOrderId(orderIdFromCustomer)
-                                });
+                                id: orderIdFromCustomer,
+                                firestoreId: doc.id,
+                                customerId: customerId,
+                                ...data,
+                                utrNumber: data.utrNumber || '',
+                                shortId: generateShortOrderId(orderIdFromCustomer)
+                            });
+
                             }
                         }
                     });
@@ -4676,12 +4694,14 @@
                                 
                                 if (!orders.find(o => o.firestoreId === doc.id)) {
                                     orders.push({ 
-                                        id: orderIdFromCustomer,
-                                        firestoreId: doc.id,
-                                        customerId: customerId,
-                                        ...data,
-                                        shortId: generateShortOrderId(orderIdFromCustomer)
-                                    });
+                                    id: orderIdFromCustomer,
+                                    firestoreId: doc.id,
+                                    customerId: customerId,
+                                    ...data,
+                                    utrNumber: data.utrNumber || '',
+                                    shortId: generateShortOrderId(orderIdFromCustomer)
+                                });
+
                                 }
                             }
                         });
@@ -4981,6 +5001,7 @@
                     let paymentText = '';
                     const paymentMethod = order.paymentMethod || 'cod';
                     let paymentStatus = order.paymentStatus || 'pending';
+                    const paymentUTR = order.paymentUTR || order.utrNumber || '';
                     
                     if ((order.status === 'delivered' || order.status === 'picked_up') && paymentStatus === 'pending') {
                         paymentStatus = 'paid';
@@ -4994,13 +5015,18 @@
                         }
                     } else if (paymentMethod === 'qr' || paymentMethod === 'online') {
                         if (paymentStatus === 'paid') {
-                            if (order.utrNumber) {
-                                paymentText = `<span class="payment-text payment-online-paid">QR - UTR: ${order.utrNumber}</span>`;
+                            if (paymentUTR) {
+                                paymentText = `<span class="payment-text payment-online-paid">QR - UTR: ${paymentUTR}</span>`;
                             } else {
                                 paymentText = `<span class="payment-text payment-online-paid">QR - PAID</span>`;
                             }
                         } else {
-                            paymentText = `<span class="payment-text payment-online-unpaid">QR - UNPAID</span>`;
+                            // For unpaid QR orders, also show UTR if customer entered it
+                            if (paymentUTR) {
+                                paymentText = `<span class="payment-text payment-online-unpaid">QR - UTR: ${paymentUTR} (UNPAID)</span>`;
+                            } else {
+                                paymentText = `<span class="payment-text payment-online-unpaid">QR - UNPAID</span>`;
+                            }
                         }
                     } else {
                         if (paymentStatus === 'paid') {
@@ -5329,7 +5355,27 @@
 
         // View Order Details - FULL SCREEN
         async function viewOrderDetails(orderId) {
-            const order = orders.find(o => o.firestoreId === orderId);
+            // ========== DEBUG START ==========
+            console.log("=== DEBUG UTR ===");
+            console.log("Order ID:", orderId);
+            
+            const orderDoc = await db.collection('orders').doc(orderId).get();
+            const data = orderDoc.data() || {};
+            
+            console.log("Firestore Data:", data);
+            console.log("data.utrNumber:", data.utrNumber);
+            console.log("All Fields in data:", Object.keys(data));
+            
+            const order = {
+                firestoreId: orderId,
+                ...data,
+                utrNumber: data.utrNumber || data.utr || data.utr_no || ''
+            };
+
+            console.log("order.paymentUTR:", order.paymentUTR);
+            console.log("=== DEBUG END ===");
+            // ========== DEBUG END ==========
+
             if (!order) {
                 showToast('Order not found', 'error');
                 return;
@@ -5561,6 +5607,9 @@
                 
                 const paymentMethod = order.paymentMethod || 'cod';
                 const paymentStatus = order.paymentStatus || 'pending';
+                // ========== YEH LINE ADD KARO ==========
+                const utrNumber = order.paymentUTR || order.utrNumber || order.utr || order.utr_no || '';
+                // ========== ADDED LINE ==========
                 
                 let paymentMethodText = '';
                 switch(paymentMethod) {
@@ -5599,6 +5648,36 @@
                         </div>
                     `;
                 }
+
+                // ========== YEH SECTION ADD KARO ==========
+let paymentDetailsHtml = `
+    <div class="order-section">
+        <h4><i class="fas fa-credit-card"></i> Payment Details</h4>
+        <div class="order-grid">
+            <div class="order-info-item">
+                <div class="order-info-label">Payment Method:</div>
+                <div class="order-info-value">${paymentMethodText}</div>
+            </div>
+            
+            ${utrNumber ? `
+            <div class="order-info-item">
+                <div class="order-info-label">UTR Number:</div>
+                <div class="order-info-value" style="font-family: monospace; font-weight: 600; color: #0F2C59;">
+                    ${utrNumber}
+                </div>
+            </div>
+            ` : ''}
+            
+            <div class="order-info-item">
+                <div class="order-info-label">Payment Status:</div>
+                <div class="order-info-value">
+                    <span class="${paymentStatusClass}">${paymentStatusText}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+// ========== ADDED SECTION END ==========
                 
                 let partialInfoHtml = '';
                 if (order.isPartialOrder) {
@@ -5790,6 +5869,18 @@
                                         <span class="${paymentStatusClass}">${paymentStatusText}</span>
                                     </div>
                                 </div>
+                                ${(order.utrNumber || order.paymentUTR || order.paymentUtr || order.paymentDetails?.utrNumber)
+                                    ? `<div class="order-info-item">
+                                           <div class="order-info-label">UTR Number:</div>
+                                           <div class="order-info-value">
+                                               ${order.utrNumber || order.paymentUTR || order.paymentUtr || order.paymentDetails?.utrNumber}
+                                           </div>
+                                       </div>`
+                                    : ''
+                                }
+
+                            
+
                                 <div class="order-info-item">
                                     <div class="order-info-label">Total Amount:</div>
                                     <div class="order-info-value"><strong>₹${orderAmount.toFixed(2)}</strong></div>
@@ -6748,155 +6839,194 @@
 
         // ==================== PARTIAL ORDER FUNCTIONS ====================
         
-        function showPartialOrderModal(orderId) {
-            const order = orders.find(o => o.firestoreId === orderId);
-            if (!order) {
-                showToast('Order not found', 'error');
-                return;
-            }
+function showPartialOrderModal(orderId) {
+    const order = orders.find(o => o.firestoreId === orderId);
+    if (!order) {
+        showToast('Order not found', 'error');
+        return;
+    }
+    
+    currentPartialOrderId = orderId;
+    
+    // IMPORTANT FIX: Initialize selectedQuantity properly
+    const rawItems = order.items || [];
+    partialOrderItems = rawItems.map(item => {
+        const quantity = item.quantity || 1;
+        return {
+            ...item,
+            selectedQuantity: quantity // Initialize with full quantity
+        };
+    });
+    
+    console.log('Partial order items initialized:', partialOrderItems);
+    
+    const itemsContainer = document.getElementById('partialOrderItems');
+    let itemsHtml = '<p>Adjust quantities of items you can fulfill:</p>';
+    
+    if (partialOrderItems.length === 0) {
+        itemsHtml += '<p>No items found in this order</p>';
+    } else {
+        partialOrderItems.forEach((item, index) => {
+            const maxQuantity = item.quantity || 1;
+            const currentQuantity = item.selectedQuantity || maxQuantity;
             
-            currentPartialOrderId = orderId;
-            partialOrderItems = JSON.parse(JSON.stringify(order.items || []));
+            // Debug log
+            console.log(`Item ${index}: max=${maxQuantity}, current=${currentQuantity}`);
             
-            const itemsContainer = document.getElementById('partialOrderItems');
-            let itemsHtml = '<p>Adjust quantities of items you can fulfill:</p>';
-            
-            if (partialOrderItems.length === 0) {
-                itemsHtml += '<p>No items found in this order</p>';
-            } else {
-                partialOrderItems.forEach((item, index) => {
-                    const maxQuantity = item.quantity || 1;
-                    itemsHtml += `
-                        <div class="item-quantity-control">
-                            <div class="item-info">
-                                <div class="item-name">${item.name || 'Product'}</div>
-                                <div class="item-price">₹${(item.price || 0).toFixed(2)} each</div>
-                            </div>
-                            <div class="quantity-controls">
-                                <button class="quantity-btn" onclick="changePartialQuantity(${index}, -1)" ${item.selectedQuantity <= 1 ? 'disabled' : ''}>-</button>
-                                <span class="quantity-display">${item.selectedQuantity || maxQuantity}</span>
-                                <button class="quantity-btn" onclick="changePartialQuantity(${index}, 1)" ${(item.selectedQuantity || maxQuantity) >= maxQuantity ? 'disabled' : ''}>+</button>
-                            </div>
-                        </div>
-                        <div class="max-quantity">Max available: ${maxQuantity}</div>
-                    `;
-                    
-                    if (!item.selectedQuantity) {
-                        item.selectedQuantity = maxQuantity;
-                    }
-                });
-            }
-            
-            itemsContainer.innerHTML = itemsHtml;
-            updatePartialOrderTotal();
-            
-            document.getElementById('partialOrderModal').classList.add('active');
-        }
+            itemsHtml += `
+                <div class="item-quantity-control">
+                    <div class="item-info">
+                        <div class="item-name">${item.name || 'Product'}</div>
+                        <div class="item-price">₹${(item.price || 0).toFixed(2)} each</div>
+                    </div>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="changePartialQuantity(${index}, -1)" ${currentQuantity <= 1 ? 'disabled' : ''}>-</button>
+                        <span class="quantity-display" id="qtyDisplay${index}">${currentQuantity}</span>
+                        <button class="quantity-btn" onclick="changePartialQuantity(${index}, 1)" ${currentQuantity >= maxQuantity ? 'disabled' : ''}>+</button>
+                    </div>
+                </div>
+                <div class="max-quantity">Max available: ${maxQuantity}</div>
+            `;
+        });
+    }
+    
+    itemsContainer.innerHTML = itemsHtml;
+    updatePartialOrderTotal();
+    
+    // Show modal
+    document.getElementById('partialOrderModal').classList.add('active');
+    console.log('Partial order modal opened');
+}
 
-        function changePartialQuantity(index, change) {
-            if (!partialOrderItems[index]) return;
-            
-            const maxQuantity = partialOrderItems[index].quantity || 1;
-            let newQuantity = (partialOrderItems[index].selectedQuantity || maxQuantity) + change;
-            
-            newQuantity = Math.max(0, Math.min(newQuantity, maxQuantity));
-            
-            partialOrderItems[index].selectedQuantity = newQuantity;
-            
-            const quantityDisplay = document.querySelectorAll('.quantity-display')[index];
-            if (quantityDisplay) {
-                quantityDisplay.textContent = newQuantity;
-            }
-            
-            const minusBtn = document.querySelectorAll('.quantity-btn')[index * 2];
-            const plusBtn = document.querySelectorAll('.quantity-btn')[index * 2 + 1];
-            
-            if (minusBtn) minusBtn.disabled = newQuantity <= 1;
-            if (plusBtn) plusBtn.disabled = newQuantity >= maxQuantity;
-            
-            updatePartialOrderTotal();
-        }
+function changePartialQuantity(index, change) {
+    if (!partialOrderItems || !partialOrderItems[index]) {
+        console.error('partialOrderItems not found at index', index);
+        return;
+    }
+    
+    const item = partialOrderItems[index];
+    const maxQuantity = item.quantity || 1;
+    const currentQuantity = item.selectedQuantity || maxQuantity;
+    let newQuantity = currentQuantity + change;
+    
+    // Ensure quantity stays within bounds
+    newQuantity = Math.max(0, Math.min(newQuantity, maxQuantity));
+    
+    // Update the item
+    partialOrderItems[index].selectedQuantity = newQuantity;
+    
+    // Update display
+    const quantityDisplay = document.getElementById(`qtyDisplay${index}`);
+    if (quantityDisplay) {
+        quantityDisplay.textContent = newQuantity;
+    }
+    
+    // Update all buttons (for safety)
+    const allButtons = document.querySelectorAll('.quantity-btn');
+    const minusBtnIndex = index * 2;
+    const plusBtnIndex = index * 2 + 1;
+    
+    if (allButtons[minusBtnIndex]) {
+        allButtons[minusBtnIndex].disabled = newQuantity <= 1;
+    }
+    if (allButtons[plusBtnIndex]) {
+        allButtons[plusBtnIndex].disabled = newQuantity >= maxQuantity;
+    }
+    
+    updatePartialOrderTotal();
+}
 
-        function updatePartialOrderTotal() {
-            let total = 0;
-            partialOrderItems.forEach(item => {
-                const quantity = item.selectedQuantity || item.quantity || 0;
-                const price = item.price || 0;
-                total += quantity * price;
-            });
-            
-            document.getElementById('partialOrderTotalAmount').textContent = total.toFixed(2);
-        }
+function updatePartialOrderTotal() {
+    let total = 0;
+    if (partialOrderItems && partialOrderItems.length > 0) {
+        partialOrderItems.forEach(item => {
+            const quantity = item.selectedQuantity || item.quantity || 0;
+            const price = item.price || 0;
+            total += quantity * price;
+        });
+    }
+    
+    const totalElement = document.getElementById('partialOrderTotalAmount');
+    if (totalElement) {
+        totalElement.textContent = total.toFixed(2);
+    }
+}
 
-        function closePartialOrderModal() {
-            document.getElementById('partialOrderModal').classList.remove('active');
-            currentPartialOrderId = null;
-            partialOrderItems = [];
-        }
+function closePartialOrderModal() {
+    document.getElementById('partialOrderModal').classList.remove('active');
+    currentPartialOrderId = null;
+    partialOrderItems = [];
+}
 
-        async function confirmPartialOrder() {
-            if (!currentPartialOrderId) return;
-            
-            const acceptedItems = [];
-            const rejectedItems = [];
-            let acceptedTotal = 0;
-            
-            partialOrderItems.forEach(item => {
-                const originalQuantity = item.quantity || 1;
-                const acceptedQuantity = item.selectedQuantity || 0;
-                
-                if (acceptedQuantity > 0) {
-                    const acceptedItem = { ...item };
-                    acceptedItem.quantity = acceptedQuantity;
-                    acceptedItem.totalPrice = acceptedQuantity * (item.price || 0);
-                    acceptedItems.push(acceptedItem);
-                    acceptedTotal += acceptedItem.totalPrice;
-                }
-                
-                if (acceptedQuantity < originalQuantity) {
-                    const rejectedItem = { ...item };
-                    rejectedItem.quantity = originalQuantity - acceptedQuantity;
-                    rejectedItem.totalPrice = rejectedItem.quantity * (item.price || 0);
-                    rejectedItems.push(rejectedItem);
-                }
-            });
-            
-            if (acceptedItems.length === 0) {
-                showToast('Please accept at least one item', 'error');
-                return;
-            }
-            
-            if (!confirm(`Confirm partial order?\n\nAccepted: ${acceptedItems.length} items (₹${acceptedTotal.toFixed(2)})\nRejected: ${rejectedItems.length} items`)) {
-                return;
-            }
-            
-            try {
-                showLoading(true);
-                
-                const updateData = {
-                    status: 'confirmed',
-                    isPartialOrder: true,
-                    acceptedItems: acceptedItems,
-                    rejectedItems: rejectedItems,
-                    acceptedTotal: acceptedTotal,
-                    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-                };
-                
-                await db.collection('orders').doc(currentPartialOrderId).update(updateData);
-                
-                closePartialOrderModal();
-                showToast('Partial order accepted!', 'success');
-                await loadOrders();
-                await loadDashboardData();
-                
-            } catch (error) {
-                console.error('Error confirming partial order:', error);
-                showToast('Error confirming partial order: ' + error.message, 'error');
-            } finally {
-                showLoading(false);
-            }
+async function confirmPartialOrder() {
+    if (!currentPartialOrderId || !partialOrderItems || partialOrderItems.length === 0) {
+        showToast('No items to process', 'error');
+        return;
+    }
+    
+    const acceptedItems = [];
+    const rejectedItems = [];
+    let acceptedTotal = 0;
+    
+    partialOrderItems.forEach(item => {
+        const originalQuantity = item.quantity || 1;
+        const acceptedQuantity = item.selectedQuantity || 0;
+        
+        if (acceptedQuantity > 0) {
+            const acceptedItem = { 
+                ...item,
+                quantity: acceptedQuantity,
+                totalPrice: acceptedQuantity * (item.price || 0)
+            };
+            acceptedItems.push(acceptedItem);
+            acceptedTotal += acceptedItem.totalPrice;
         }
-
+        
+        if (acceptedQuantity < originalQuantity) {
+            const rejectedItem = { 
+                ...item,
+                quantity: originalQuantity - acceptedQuantity,
+                totalPrice: (originalQuantity - acceptedQuantity) * (item.price || 0)
+            };
+            rejectedItems.push(rejectedItem);
+        }
+    });
+    
+    if (acceptedItems.length === 0) {
+        showToast('Please accept at least one item', 'error');
+        return;
+    }
+    
+    if (!confirm(`Confirm partial order?\n\nAccepted: ${acceptedItems.length} items (₹${acceptedTotal.toFixed(2)})\nRejected: ${rejectedItems.length} items`)) {
+        return;
+    }
+    
+    try {
+        showLoading(true);
+        
+        const updateData = {
+            status: 'confirmed',
+            isPartialOrder: true,
+            acceptedItems: acceptedItems,
+            rejectedItems: rejectedItems,
+            acceptedTotal: acceptedTotal,
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        };
+        
+        await db.collection('orders').doc(currentPartialOrderId).update(updateData);
+        
+        closePartialOrderModal();
+        showToast('Partial order accepted!', 'success');
+        await loadOrders();
+        await loadDashboardData();
+        
+    } catch (error) {
+        console.error('Error confirming partial order:', error);
+        showToast('Error confirming partial order: ' + error.message, 'error');
+    } finally {
+        showLoading(false);
+    }
+}
         // ==================== PROFILE MANAGEMENT FUNCTIONS ====================
         
         // Update profile form with current shop data
